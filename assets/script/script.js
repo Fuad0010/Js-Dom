@@ -1,26 +1,24 @@
 
 let listsDiv=document.getElementById("listsDiv");
-let btnCombine=document.getElementById("btnCombine");
-let list1=document.getElementById("list1");
-let first=document.getElementById("first");  
-let second=document.getElementById("second");  
+let btn=document.getElementById("btn");
+let list1=document.getElementsByClassName("list1");
+let liSecond=document.getElementsByClassName("second");  
+let liFirst=document.getElementsByClassName("first");
 
-
-function arrayUnique(array) {
-    var a = array.concat();
-    for(var i=0; i<a.length; ++i) {
-        for(var j=i+1; j<a.length; ++j) {
-            if(a[i] === a[j])
-                a.splice(j--, 1);
-        }
-    }
-
-    return a;
+btn.onclick=_=>{
+    let arr1=[]
+    let arr2=[]
+    for (let i = 0; i < liFirst.length; i++) {
+        let text1=liFirst[i].childNodes[0].nodeValue;  
+        arr1.push(text1);
+      }
+    
+      for (let i = 0; i < liSecond.length; i++) {
+        let text2=liSecond[i].childNodes[0].nodeValue;  
+        arr1.push(text2);
+      }
+      arr2= arr1.filter((item,index) => arr1.indexOf(item) ===index);
+      console.log(arr2);
 }
 
-var array1 = ["Vijendra","Singh"];
-var array2 = ["Singh", "Shakya"];
     
-var array3 = arrayUnique(array1.concat(array2));
-
-console.log(first);
